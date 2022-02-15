@@ -1,0 +1,4 @@
+pandas
+pytorch-tabnet
+flask
+numpy

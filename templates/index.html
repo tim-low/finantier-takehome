@@ -1,0 +1,253 @@
+<html>
+	<head>
+	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<title>Heart Disease Test</title>
+	</head>
+	<body>
+	<!-- Java Script -->	
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+		
+		<!-- Navbar-->
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1">Heart Disease Test</span>
+		</nav>
+		<div class="container">
+			<br>
+			<!--Form-->
+			<form action = "{{url_for('predict')}}" method ="POST" >
+				<fieldset>
+				<legend>Heart Disease Test Form</legend><br>
+				  <div class="card card-body" >
+					  <div class="form-group  row">
+						
+						<div class="col-sm-3">
+							<label for="gender">Gender</label>
+							<select class="form-control" id="gender"  name="gender" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">Female</option>
+							  <option value = "1">Male</option>
+							</select>
+					   </div>
+
+					   <div class="col-sm-3">
+						<label for="SeniorCitizen">Customer is a Senior Citizen</label>
+						<select class="form-control" id="SeniorCitizen"  name="SeniorCitizen" required>
+						  <option disabled selected value> -- Select an Option -- </option>
+						  <option value = "0">False</option>
+						  <option value = "1">True</option>
+						</select>
+				   		</div>
+
+						<div class="col-sm-3">
+							<label for="Partner">Partner</label>
+							<select class="form-control" id="Partner"  name="Partner" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "0">No</option>
+							<option value = "1">Yes</option>
+							</select>
+						</div>
+
+						<div class="col-sm-3">
+							<label for="Dependents">Dependents</label>
+							<select class="form-control" id="Dependents"  name="Dependents" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "0">No</option>
+							<option value = "1">Yes</option>
+							</select>
+						</div>
+
+					  </div>
+
+					  <br>
+
+					  <div class="form-group  row">
+
+						<div class="col-sm">
+							<label for="tenure">Duration of Tenure</label>
+							<input type="number" class="form-control" id="tenure" name="tenure"  required>
+						</div>
+
+						  <div class="col-sm">
+							<label for="PhoneService">Phone Service Type</label>
+							<select class="form-control" id="PhoneService" name = "PhoneService" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No</option>
+							  <option value = "1">Yes</option>
+							</select>
+						  </div>
+
+						  <div class="col-sm">
+							<label for="MultipleLines">MultipleLines</label>
+							<select class="form-control" id="MultipleLines" name = "MultipleLines" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No phone service</option>
+							  <option value = "1">No</option>
+							  <option value = "2">Yes</option>
+							</select>
+						  </div>
+
+						  <div class="col-sm">
+							<label for="InternetService">Internet Service Type</label>
+							<select class="form-control" id="InternetService" name="InternetService" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No</option>
+							  <option value = "1">DSL</option>
+							  <option value = "1">Fiber optic</option>
+							</select>
+						</div>
+
+					  </div>
+					  
+					  <br>
+
+					  <div class="form-group row">
+
+							<div class="col-sm">
+								<label for="OnlineSecurity">Has Online Security</label>
+								<select class="form-control" id="OnlineSecurity" name="OnlineSecurity" required>
+								  <option disabled selected value> -- Select an Option -- </option>
+								  <option value = "0">No phone service</option>
+								  <option value = "1">No</option>
+								  <option value = "2">Yes</option>
+								</select>
+							  </div>
+
+							  <div class="col-sm">
+								<label for="OnlineBackup">Has Online Backup</label>
+								<select class="form-control" id="OnlineBackup" name="OnlineBackup" required>
+								  <option disabled selected value> -- Select an Option -- </option>
+								  <option value = "0">No phone service</option>
+								  <option value = "1">No</option>
+								  <option value = "2">Yes</option>
+								</select>
+							  </div>
+
+							  <div class="col-sm">
+								<label for="DeviceProtection">Has Device Protection</label>
+								<select class="form-control" id="DeviceProtection" name="DeviceProtection" required>
+								  <option disabled selected value> -- Select an Option -- </option>
+								  <option value = "0">No phone service</option>
+								  <option value = "1">No</option>
+								  <option value = "2">Yes</option>
+								</select>
+							  </div>
+
+							  <div class="col-sm">
+								<label for="TechSupport">Has Tech Support</label>
+								<select class="form-control" id="TechSupport" name="TechSupport" required>
+								  <option disabled selected value> -- Select an Option -- </option>
+								  <option value = "0">No phone service</option>
+								  <option value = "1">No</option>
+								  <option value = "2">Yes</option>
+								</select>
+							  </div>
+
+						  </div>
+
+						  <br>
+
+						  <div class="form-group  row">
+
+						  <div class="col-sm">
+							<label for="StreamingTV">Has Streaming TV</label>
+							<select class="form-control" id="StreamingTV" name="StreamingTV" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No phone service</option>
+							  <option value = "1">No</option>
+							  <option value = "2">Yes</option>
+							</select>
+						  </div>
+
+						  <div class="col-sm">
+							<label for="StreamingMovies">Has Streaming Movies</label>
+							<select class="form-control" id="StreamingMovies" name = "StreamingMovies" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No phone service</option>
+							  <option value = "1">No</option>
+							  <option value = "2">Yes</option>
+							</select>
+						  </div>
+
+						  <div class="col-sm">
+							<label for="Contract">Contract</label>
+							<select class="form-control" id="Contract" name = "Contract" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">Month-to-month</option>
+							  <option value = "1">One year</option>
+							  <option value = "2">Two year</option>
+							</select>
+						  </div>
+
+					  </div>
+
+
+					  <br>
+
+					  <div class="form-group  row">
+
+						<div class="col-sm">
+							<label for="PaperlessBilling">Has Paperless Billing</label>
+							<select class="form-control" id="PaperlessBilling" name = "PaperlessBilling" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No</option>
+							  <option value = "1">Yes</option>
+							</select>
+						  </div>
+
+
+						  <div class="col-sm">
+							<label for="PaymentMethod">Payment Method</label>
+							<select class="form-control" id="PaymentMethod" name="PaymentMethod" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">Electronic check</option>
+							  <option value = "1">Mailed check</option>
+							  <option value = "2">Bank transfer (automatic)</option>
+							  <option value = "3">Credit card (automatic)</option>
+							</select>
+						</div>
+
+
+						<div class="col-sm">
+							<label for="MonthlyCharges">Monthly Charges</label>
+							<input type="number" class="form-control" id="MonthlyCharges" name="MonthlyCharges"  required>
+						</div>
+
+
+
+						  <div class="col-sm">
+							<label for="TotalCharges">Total Charges</label>
+							<input type="number" class="form-control" id="TotalCharges" name="TotalCharges" required>
+						  </div>
+
+
+
+					  </div>
+
+
+					  <br>
+
+					  
+
+					  <div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Result">
+					  </div>
+					  
+					  <!--Prediction Result-->
+					  <div id ="result">
+							<strong style="color:red">{{result}}</strong>
+					 </div>
+				     </div>
+			 </fieldset>
+			</form>
+			
+		</div>
+		
+	</body>
+</html>
